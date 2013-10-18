@@ -1,20 +1,32 @@
+## Install
+
+I can always help. Installing things is frustrating.
+
+You *might* need to install ruby.
+
+https://www.ruby-lang.org/en/downloads/
+
+You will also need to install gnuplot and imagemagick.
+
+http://www.gnuplot.info/download.html
+http://www.imagemagick.org/script/binary-releases.php
+
 ## Setup
 
 First, make a directory in /data and /implementation with your name.
 
-To do that (wilkie is my name):
+To do that (replace your_name with your name or handle):
 
 ```
-mkdir data/wilkie
-mkdir implementation/wilkie
+mkdir data/your_name
+mkdir implementation/your_name
 ```
 
 Second, copy the examples:
 
 ```
-cp data/data.json data/wilkie
-cp implementation/data_plot.rb implementation/wilkie
-cp implementation/data_analysis.rb implementation/wilkie
+cp data/wilkie/* data/your_name
+cp implementation/wilkie/* implementation/your_name
 ```
 
 ## Now, you can at this point look at how my example works (again, substitute my name, wilkie, with your own)
