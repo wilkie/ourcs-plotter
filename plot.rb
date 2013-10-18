@@ -1,6 +1,6 @@
-require './implementation/wilkie/data_loader.rb'
-require './implementation/wilkie/data_plot.rb'
-require './implementation/wilkie/data_analysis.rb'
+require "./implementation/#{ARGV[0]}/data_loader.rb"
+require "./implementation/#{ARGV[0]}/data_plot.rb"
+require "./implementation/#{ARGV[0]}/data_analysis.rb"
 
 data = DataLoader.new.pull_data
 

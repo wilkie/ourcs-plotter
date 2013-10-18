@@ -35,7 +35,13 @@ cp implementation/wilkie/* implementation/your_name
 ruby plot.rb wilkie
 ```
 
-## Take a look at output.gif
+## And then make sure it also works for your name
+
+```
+ruby plot.rb your_name
+```
+
+## Take a look at output.gif for each
 
 ## Now, think about the data you would like to visualize... and find that data.
 
