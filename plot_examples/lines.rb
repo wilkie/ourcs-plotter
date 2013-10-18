@@ -1,5 +1,4 @@
-class DataSet
-  require 'json'
+class DataPlot
   require 'gnuplot'
 
   def plot(title, series_x, series_y, series_titles, x_label, y_label)
@@ -14,7 +13,7 @@ class DataSet
         # See http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Doc/gnuplot_primer/gptermcmp.html
         # for a list of recognized terminals.
         plot.terminal "gif"
-        plot.output "./public/sin_wave.gif"
+        plot.output "./public/output.gif"
 
         # see sin_wave.rb
         min_x = series_x.map(&:min).min
