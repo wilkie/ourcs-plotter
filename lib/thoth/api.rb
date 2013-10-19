@@ -309,4 +309,29 @@ class API
       end
     end
   end
+
+  def self.push(path)
+    puts ""
+
+    found = false
+    self.hosts.each_with_index do |host, i|
+      port = self.ports[i]
+
+      begin
+        protocol = Protocol.new(:host => host,
+                                :port => port)
+      rescue
+        puts "Neighbor not reachable."
+        next
+      end
+
+      # Upload to every neighbor
+      Dir.glob("data/#{path}/*").each do |fn|
+        puts "Uploading #{fn}"
+        File.open(fn, "rb") do |file|
+          protocol.push(fn, file)
+        end
+      end
+    end
+  end
 end

@@ -94,4 +94,10 @@ class Protocol
                                          "file" => UploadIO.new(file, "text/plain", "#{implementation}.rb")
     @http.request(req)
   end
+
+  def push(fn, file)
+    req = Net::HTTP::Post::Multipart.new "/#{File.dirname(fn)}",
+                                         "file" => UploadIO.new(file, "text/plain", File.basename(fn))
+    @http.request(req)
+  end
 end

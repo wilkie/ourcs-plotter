@@ -42,6 +42,8 @@ loop do
       puts "Publishing interface #{interface}..."
       API.publish(interface, implementation)
     end
+  when "push"
+    API.push(args)
   when "quit", "exit", "x"
     break
   else
