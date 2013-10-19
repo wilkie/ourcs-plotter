@@ -1,6 +1,6 @@
-require "./implementation/#{ARGV[0]}/data_loader.rb"
-require "./implementation/#{ARGV[0]}/data_plot.rb"
-require "./implementation/#{ARGV[0]}/data_analysis.rb"
+require "./implementation/data_loader/#{ARGV[0]}.rb"
+require "./implementation/data_plot/#{ARGV[0]}.rb"
+require "./implementation/data_analysis/#{ARGV[0]}.rb"
 
 data = DataLoader.new.pull_data
 

@@ -26,7 +26,9 @@ Second, copy the examples:
 
 ```
 cp data/wilkie/* data/your_name
-cp implementation/wilkie/* implementation/your_name
+cp implementation/data_analysis/wilkie.rb implementation/data_analysis/your_name.rb
+cp implementation/data_plot/wilkie.rb implementation/data_plot/your_name.rb
+cp implementation/data_loader/wilkie.rb implementation/data_loader/your_name.rb
 ```
 
 ## Now, you can at this point look at how my example works (again, substitute my name, wilkie, with your own)
