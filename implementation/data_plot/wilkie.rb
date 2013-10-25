@@ -21,7 +21,7 @@ class DataPlot
         max_x = series_x.map(&:max).max
         max_y = series_y.map(&:max).max
 
-        plot.xrange "[#{min_x}:#{max_x}]"
+        plot.xrange "[#{min_x}:#{max_x+2}]"
         plot.yrange "[#{min_y}:#{max_y}]"
 
         plot.title title
@@ -29,12 +29,31 @@ class DataPlot
         plot.xlabel x_label
         plot.ylabel y_label
 
-        series_x.zip(series_y, series_titles).each do |x,y,title|
-          plot.data << Gnuplot::DataSet.new( [x,y] ) do |ds|
-            ds.with = "lines"
-            ds.linewidth = 4
-            ds.title = title
-          end
+        plot.boxwidth 0.5
+        plot.style "fill solid 1.00 border -1"
+
+        plot.style "data histograms"
+        plot.style "histogram columnstacked"
+
+        xs = series_x.first
+
+        data = []
+        data << xs
+
+        series_y.each do |ys|
+          data << ys
+        end
+
+        plot.data << Gnuplot::DataSet.new( data ) do |ds|
+          ds.with = "boxes"
+          ds.title = "A"
+          ds.using = "($1):($2+$3)"
+        end
+
+        plot.data << Gnuplot::DataSet.new( data ) do |ds|
+          ds.with = "boxes"
+          ds.title = "B"
+          ds.using = "1:3"
         end
       end
     end

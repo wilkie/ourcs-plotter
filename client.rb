@@ -1,7 +1,7 @@
 require './lib/thoth/api.rb'
 require 'readline'
 
-HOSTS = ["deadreckoning.no-ip.org"]
+HOSTS = ["localhost"]
 PORTS = [9292]
 
 API.discover(HOSTS, PORTS)

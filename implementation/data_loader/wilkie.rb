@@ -8,46 +8,6 @@ class DataLoader
     y_series = [] # One for the y
     labels   = [] # One to hold a description of the data
 
-    # Load JSON
-    json = JSON.load( IO.read("data/wilkie/data.json") )
-
-    # From inspecting the JSON, I know that it is weird.
-    # It is a bunch of records which are basic json arrays.
-    # The ninth element is the grade level, tenth element is the year, 13th is the mean score
-
-    # Select all eighth grader data
-    points = json["data"].select do |data|
-      data[9] == "8"
-    end
-
-    # It is split up by district, so I want a running total
-    grade_x_series = []
-    grade_y_series = []
-    total = []
-    points.each do |point|
-      year  = point[10].to_i
-      grade = point[13].to_i
-
-      if grade_x_series.include? year
-        index = grade_x_series.index year
-        grade_y_series[index] += grade
-        total[index] += 1
-      else
-        grade_x_series << year
-        grade_y_series << grade
-        total << 1
-      end
-    end
-
-    grade_y_series.each_with_index do |e, i|
-      grade_y_series[i] /= total[i]
-    end
-
-    # Add this to our overall data pool
-    x_series << grade_x_series
-    y_series << grade_y_series
-    labels   << "8th Grader Math Test Scores"
-
     # Load XLS
     xls = Roo::Excel.new("data/wilkie/usage.xls")
 
